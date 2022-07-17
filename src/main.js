@@ -3,8 +3,8 @@ var map, datasource, routeURL;
 //Lugar de inicio
 //let userGeo = sqlite3.getUserGeo();
 //var start = [-99.216670, 19.650000];
-//var start = [-103.392134, 20.647609];
-var start = userGeo;
+var start = [-103.392134, 20.647609];
+//var start = userGeo;
 
 //Expo Guadalajara
 var end = [-103.392307, 20.654288];
