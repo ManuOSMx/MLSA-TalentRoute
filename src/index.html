@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>MLSA | Rutas</title>
+
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description"
+        content="This sample shows the usage of alternative routes, alternative types and supporting points with minimum deviation time and distance constraints." />
+    <meta name="keywords" content="Microsoft maps, map, gis, API, SDK, services, module, route, directions" />
+    <meta name="author" content="Microsoft Azure Maps" />
+    <meta name="screenshot" content="screenshot.jpg" />
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+    <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" rel="stylesheet" />
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
+</head>
+
+<body onload="GetMap()">
+    <header>
+        <H1 style="justify-content: center; text-align: center;">Holi</H1>
+    </header>
+    <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
+
+    <div class="sidePanel">
+
+        <form oninput="alts.value=alternatives.value">
+            Rutas Alternativas: <output id="alts" for="alternatives">1</output>
+            <br />
+            <input id="alternatives" type="range" value="1" step="1" min="0" max="5" onchange="calculateRoute()" />
+        </form>
+
+        Tipo de Ruta:
+
+        <select id="alternativeType" onchange="calculateRoute()">
+            <option value="anyRoute" selected="selected">Cualquier Ruta</option>
+            <option value="betterRoute">Mejor Ruta</option>
+        </select>
+
+        <br /><br />
+
+        <form oninput="mdt.value=minDevTime.value">
+            Min. Tiempo en desviación(s): <output id="mdt" for="minDevTime">0</output>
+            <br />
+            <input id="minDevTime" type="range" value="0" step="1" min="0" max="1000" onchange="calculateRoute()" />
+        </form>
+
+        <form oninput="mdd.value=minDevDistance.value">
+            Min. Distancia en desviación(m): <output id="mdd" for="minDevDistance">0</output>
+            <br />
+            <input id="minDevDistance" type="range" value="0" step="100" min="0" max="5000"
+                onchange="calculateRoute()" />
+        </form>
+    </div>
+    <div id="resultsPanel"></div>
+</body>
+<script src="./main.js"></script>
+
+</html>
