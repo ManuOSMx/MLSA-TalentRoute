@@ -32,3 +32,6 @@
     vertical-align: middle;
     margin: auto;
 }
+#queryTbx {
+    width: 25em;
+}

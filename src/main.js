@@ -1,20 +1,22 @@
 var map, datasource, routeURL;
+var geocodeServiceUrlTemplate = 'https://{azMapsDomain}/search/{searchType}/json?typeahead=true&api-version=1&query={query}&language={language}&lon={lon}&lat={lat}&countrySet={countrySet}&view=Auto';
 
 //Lugar de inicio
 //let userGeo = sqlite3.getUserGeo();
 //var start = [-99.216670, 19.650000];
-var start = [-103.392134, 20.647609];
+var start = [];
 //var start = userGeo;
 
 //Expo Guadalajara
 var end = [-103.392307, 20.654288];
 
-//Colores de las diferentes rutas
+//Colores de las diferentes rutas MAXIMO 6 RUTAS
 var routeColors = ['#2272B9', '#ff7b25', '#6b5b95', '#d64161', '#00cc66', '#000000'];
 
 function GetMap() {
     //Inicializar el mapa
     map = new atlas.Map('myMap', {
+        //Expo Guadalajara
         center: [-103.392307, 20.654288],
         zoom: 15,
         view: 'Auto',
@@ -26,6 +28,7 @@ function GetMap() {
             subscriptionKey: '2v2WcHa8x-isHj31pQd73lNEQQrNxlVPaHGXuzyjLWM'
         }
     });
+    
 
     //Use MapControlCredential to share authentication between a map control and the service module.
     var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
@@ -55,8 +58,85 @@ function GetMap() {
             },
             filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
         }));
+        //Create a jQuery autocomplete UI widget.
+        $("#queryTbx").autocomplete({
+            minLength: 3,   //Don't ask for suggestions until atleast 3 characters have been typed. This will reduce costs by not making requests that will likely not have much relevance.
+            source: function (request, response) {
+                var center = map.getCamera().center;
 
-        calculateRoute();
+                var elm = document.getElementById('countrySelector');
+                var countryIso = elm.options[elm.selectedIndex].value;
+
+                //Create a URL to the Azure Maps search service to perform the search.
+                var requestUrl = geocodeServiceUrlTemplate.replace('{query}', encodeURIComponent(request.term))
+                    .replace('{searchType}', document.querySelector('input[name="searchTypeGroup"]:checked').value)
+                    .replace('{language}', 'en-US')
+                    .replace('{lon}', center[0])    //Use a lat and lon value of the center the map to bais the results to the current map view.
+                    .replace('{lat}', center[1])
+                    .replace('{countrySet}', countryIso); //A comma seperated string of country codes to limit the suggestions to.
+
+                processRequest(requestUrl).then(data => {
+                    response(data.results);
+                });
+            },
+            select: function (event, ui) {
+                //Remove any previous added data from the map.
+                datasource.clear();
+
+                //Create a point feature to mark the selected location.
+                datasource.add(new atlas.data.Feature(new atlas.data.Point([ui.item.position.lon, ui.item.position.lat]), ui.item));
+                start = [ui.item.position.lon, ui.item.position.lat];
+                console.log([ui.item.position.lon, ui.item.position.lat]);
+                calculateRoute();
+                
+                //Zoom the map into the selected location.
+                map.setCamera({
+                    bounds: [
+                        ui.item.viewport.topLeftPoint.lon, ui.item.viewport.btmRightPoint.lat,
+                        ui.item.viewport.btmRightPoint.lon, ui.item.viewport.topLeftPoint.lat
+                    ],
+                    padding: 30
+                });
+            }
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            //Format the displayed suggestion to show the formatted suggestion string.
+            var suggestionLabel = item.address.freeformAddress;
+
+            if (item.poi && item.poi.name) {
+                suggestionLabel = item.poi.name + ' (' + suggestionLabel + ')';
+            }
+
+            return $("<li>")
+                .append("<a>" + suggestionLabel + "</a>")
+                .appendTo(ul);
+        };
+        
+    });
+}
+function processRequest(url) {
+    //This is a reusable function that sets the Azure Maps platform domain, sings the request, and makes use of any transformRequest set on the map.
+    return new Promise((resolve, reject) => {
+        //Replace the domain placeholder to ensure the same Azure Maps cloud is used throughout the app.
+        url = url.replace('{azMapsDomain}', atlas.getDomain());
+
+        //Get the authentication details from the map for use in the request.
+        var requestParams = map.authentication.signRequest({ url: url });
+
+        //Transform the request.
+        var transform = map.getServiceOptions().tranformRequest;
+        if (transform) {
+            requestParams = transform(url);
+        }
+
+        fetch(requestParams.url, {
+            method: 'GET',
+            mode: 'cors',
+            headers: new Headers(requestParams.headers)
+        })
+            .then(r => r.json(), e => reject(e))
+            .then(r => {
+                resolve(r);
+            }, e => reject(e));
     });
 }
 
@@ -105,7 +185,7 @@ function calculateRoute() {
         datasource.add(data);
 
         //Create a table with the route travel time/distance information.
-        var html = ['<table><tr><td>Route</td><td>Distance</td><td>Time</td></tr>'];
+        var html = ['<table><tr><td>Ruta</td><td>Distancia</td><td>Tiempo</td></tr>'];
 
         for (var i = 0; i < directions.routes.length; i++) {
             var s = directions.routes[i].summary.travelTimeInSeconds % 60;

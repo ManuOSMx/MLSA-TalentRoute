@@ -15,6 +15,11 @@
     <meta name="screenshot" content="screenshot.jpg" />
 
     <link rel="stylesheet" href="./style.css">
+    <!-- Load JQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
     <link href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" rel="stylesheet" />
@@ -26,12 +31,28 @@
 
 <body onload="GetMap()">
     <header>
-        <H1 style="justify-content: center; text-align: center;">Holi</H1>
+        <H1 style="justify-content: center; text-align: center;">Microsoft Learn </br>Student Ambassadors</H1>
     </header>
     <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
-
     <div class="sidePanel">
+        
+    </div>
+    <br />
+    <div class="sidePanel">
+        Busqueda:
+        <input type="radio" value="address" name="searchTypeGroup" checked="checked" /> Dirección
+        <br /><br />
 
+        País:
+        <select id="countrySelector">
+            <option value="MX">Mexico</option>
+        </select>
+        <br /><br />
+
+        <div class="ui-widget">
+            <label for="queryTbx">Dirección Origen:</label>
+            <input id="queryTbx">
+        </div>
         <form oninput="alts.value=alternatives.value">
             Rutas Alternativas: <output id="alts" for="alternatives">1</output>
             <br />
