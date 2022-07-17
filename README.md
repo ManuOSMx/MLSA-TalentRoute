@@ -1,4 +1,7 @@
 # MLSA-TalentRoute
+Page: [MLSA-TalentRoute](https://manuos.codes/MLSA-TalentRoute)
+Proyecto Final: [MAPA](https://victorious-beach-080a92d0f.1.azurestaticapps.net/)
+
 ## Requisitos
 - Azure: [Suscripción en Microsoft Azure](https://azure.microsoft.com/en-us/free/students) IMPORTANTE: Si eres estudiante, no coloques ninguna tarjeta de credito o débito.
 - Sistema de Control de Versiones: [Instalar Git](https://git-scm.com/downloads)
