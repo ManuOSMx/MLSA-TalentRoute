@@ -1,6 +1,6 @@
 # MLSA-TalentRoute
-Page: [MLSA-TalentRoute](https://manuos.codes/MLSA-TalentRoute)
-Proyecto Final: [MAPA](https://victorious-beach-080a92d0f.1.azurestaticapps.net/)
+- Page: [MLSA-TalentRoute](https://manuos.codes/MLSA-TalentRoute)
+- Proyecto Final: [MAPA](https://victorious-beach-080a92d0f.1.azurestaticapps.net/)
 
 ## Requisitos
 - Azure: [Suscripción en Microsoft Azure](https://azure.microsoft.com/en-us/free/students) IMPORTANTE: Si eres estudiante, no coloques ninguna tarjeta de credito o débito.
@@ -14,7 +14,10 @@ Principalmente tienes que tener una cuenta en GitHub, si aún no la tienes, crea
 Para el clonado del proyecto, sigue los pasos:
 1. En tu computadora, busca una carpeta vacía que será donde se encontrará el proyecto.
 2. Abre la terminal de tu computadora en la ubicación de la carpeta vacía.
-3. Coloca en la terminal: ```ps git clone https://github.com/ManuOSMx/MLSA-TalentRoute.git```
+3. Coloca en la terminal:
+```powershell
+git clone https://github.com/ManuOSMx/MLSA-TalentRoute.git
+```
 ### Crear Mapa en Azure
 1. Ingresa a: [Portal Azure](https://portal.azure.com)
 2. En la barra de busqueda que se encuentra en la parte superior, escribe: *Azure Maps Accounts*
