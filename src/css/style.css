@@ -45,7 +45,10 @@ button:focus {
 p {
     color: #666;
     line-height: 1.7;
-    margin-bottom: 35px;
+}
+
+strong {
+    color:rgb(47, 196, 255)
 }
 
 h1,
@@ -84,7 +87,9 @@ h6 {
 }
 
 .tm-bg-color-1 {
-    background-color: #8cbdfc;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+
 }
 
 .tm-bg-color-4 {
@@ -100,7 +105,8 @@ h6 {
 }
 
 .tm-bg-color-7 {
-    background-color: #DDD;
+    background: rgb(27, 27, 92);
+    
 }
 
 .tm-bg-color-8 {
@@ -124,6 +130,9 @@ h6 {
     color: #fff;
 }
 
+output {
+    color: #fff;
+}
 .text-center {
     text-align: center;
 }
@@ -149,8 +158,8 @@ h6 {
 
 .tm-nav-container {
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: space-evenly;
     width: 68.595%;
     height: 100%;
     padding: 20px;
@@ -162,8 +171,12 @@ h6 {
     width: 145px;
     height: 145px;
     margin-right: 15px;
-    background-color: white;
+    border: 2px solid rgb(0, 183, 255);
+    border-radius: 5%;
+    background-color: #00628f;
+
 }
+
 
 .tm-nav-item:last-child {
     margin-right: 0;
@@ -195,16 +208,16 @@ h6 {
         margin-right: 10px;
     }
 
-    .tm-nav ul {
+    ul {
         display: flex;
         flex-wrap: wrap;
-        align-items: flex-end;
-        justify-content: flex-end;
+        align-items: center;
+    justify-content: space-evenly;
     }
 }
 
 .tm-nav-link {
-    color: #666;
+    color: rgb(110, 214, 255);
     width: 100%;
     height: 100%;
     display: flex;
@@ -217,7 +230,7 @@ h6 {
 .tm-nav-item.current .tm-nav-link,
 .tm-nav-link:hover {
     color: white;
-    background-color: #009ab9;
+    background-color: #00ccff;
 }
 
 @media (max-width: 1033px) {
@@ -237,26 +250,20 @@ h6 {
 }
 
 .tm-section-1-l {
-    width: 57.85%;
-    margin-right: 1.65%;
+    padding: 50px 40px;
+    width: 40.5%;
+    border-radius: .5em;
+    margin-bottom: 2%;
 }
 
 .tm-section-1-r {
-    padding: 50px 40px;
-    width: 40.5%;
+    width: 57.85%;
+    margin-left: 1.65%;
+    margin-bottom: 2%;
 }
 
 .tm-row {
     display: flex;
-}
-
-.tm-btn {
-    display: inline-block;
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    border: none;
-    background-color: #CC9999;
-    color: white;
 }
 
 
@@ -379,7 +386,8 @@ h6 {
 }
 
 #queryTbx {
-    max-width: 100%;
+    width: 100%;
+    font-size: medium;
 }
 
 nav img {

@@ -28,11 +28,11 @@
 
 <body onload="GetMap()">
     <div class="container-fluid">
-        <div class="tm-site-header tm-mb-1">
-            <nav class="tm-site-name-container tm-bg-color-1">
+        <div class="tm-site-header tm-mb-1 tm-bg-color-1">
+            <nav class="tm-site-name-container">
                 <img src="./img/MLSA.png" alt="MLSA">
             </nav>
-            <div class="tm-nav-container tm-bg-color-8">
+            <div class="tm-nav-container">
                 <nav class="tm-nav" id="tm-nav">
                     <ul>
                         <li class="tm-nav-item">
@@ -62,32 +62,31 @@
         </div>
         <section class="tm-mb-1" id="about">
             <div class="tm-row tm-about-row">
-                <div class="tm-section-1-l">
-                    <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
-                </div>
-                <article class="tm-section-1-r tm-bg-color-8">
-                    Busqueda:
-                    <input type="radio" value="address" name="searchTypeGroup" checked="checked" /> Dirección
-                    <br /><br />
+                
+                <article class="tm-section-1-l tm-bg-color-7">
+                    <div style="color: aliceblue;">
+                    <strong>Búsqueda:</strong> Dirección
+                    <input type="radio" value="address" name="searchTypeGroup" checked="checked" />
+                </div><br />
 
-                    País:
+                    <strong>País:</strong>
                     <select id="countrySelector">
                         <option value="MX">Mexico</option>
                     </select>
                     <br /><br />
 
                     <div class="ui-widget">
-                        <label for="queryTbx">Dirección Origen:</label>
+                        <label for="queryTbx"><strong>Dirección Origen:</strong></label>
                         <input id="queryTbx">
-                    </div>
+                    </div><br />
                     <form oninput="alts.value=alternatives.value">
-                        Rutas Alternativas: <output id="alts" for="alternatives">0</output>
+                        <strong>Rutas Alternativas:</strong> <output id="alts" for="alternatives">1</output>
                         <br />
-                        <input id="alternatives" type="range" value="0" step="1" min="0" max="5"
+                        <input id="alternatives" type="range" value="1" step="1" min="0" max="5"
                             onchange="calculateRoute()" />
                     </form>
 
-                    Tipo de Ruta:
+                    <strong>Tipo de Ruta:</strong>
 
                     <select id="alternativeType" onchange="calculateRoute()">
                         <option value="anyRoute" selected="selected">Cualquier Ruta</option>
@@ -97,21 +96,23 @@
                     <br /><br />
 
                     <form oninput="mdt.value=minDevTime.value">
-                        Min. Tiempo en desviación(s): <output id="mdt" for="minDevTime">0</output>
+                    <strong>Min. Tiempo en desviación (s):</strong> <output id="mdt" for="minDevTime">0</output>
                         <br />
                         <input id="minDevTime" type="range" value="0" step="1" min="0" max="1000"
                             onchange="calculateRoute()" />
                     </form>
 
                     <form oninput="mdd.value=minDevDistance.value">
-                        Min. Distancia en desviación(m): <output id="mdd" for="minDevDistance">0</output>
+                        <strong>Min. Distancia en desviación (m):</strong> <output id="mdd" for="minDevDistance">0</output>
                         <br />
                         <input id="minDevDistance" type="range" value="0" step="100" min="0" max="5000"
                             onchange="calculateRoute()" />
                     </form>
                     <div id="resultsPanel"></div>
                 </article>
-
+                <div class="tm-section-1-r">
+                    <div id="myMap" style="position:relative;width:100%;min-width:290px;height:600px;"></div>
+                </div>
             </div>
         </section>  
 
