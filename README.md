@@ -30,8 +30,9 @@ git clone https://github.com/ManuOSMx/MLSA-TalentRoute.git
 ### Git y GitHub
 - ```git add .```
 - ```git commit -m "Primer Commit"```
+- ```git pull origin main```
 - ```git push -u origin main```
-- ...
+- Repeat
 
 ### Desplegar proyecto en Microsoft Azure
 - En Visual Studio Code, instala la extensión 'Azure Static Web Apps'
