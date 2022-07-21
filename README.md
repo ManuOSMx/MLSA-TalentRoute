@@ -35,7 +35,11 @@ git clone https://github.com/ManuOSMx/MLSA-TalentRoute.git
 
 ### Desplegar proyecto en Microsoft Azure
 - En Visual Studio Code, instala la extensión 'Azure Static Web Apps'
-- ...
+- En Visual Studio Code, instala la extensión 'Azure Account'
+-En Visual Studio Code, instala la extensión 'Azure Resources'
+- En la carpeta del proyecto 'MLSA-TalentRoute' abren Visual Studio Code y aparece una nueva selección de Azure como en la siguiente imagen.
+
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/img/Paso2.png)
 
 ## Recursos
 - [Azure Maps Samples](https://samples.azuremaps.com/?sample=)
