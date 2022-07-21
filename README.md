@@ -39,7 +39,36 @@ git clone https://github.com/ManuOSMx/MLSA-TalentRoute.git
 -En Visual Studio Code, instala la extensión 'Azure Resources'
 - En la carpeta del proyecto 'MLSA-TalentRoute' abren Visual Studio Code y aparece una nueva selección de Azure como en la siguiente imagen.
 
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso1.png)
+
+- Al darle clic al logo de 'Azure' nos pedira iniciar sesión a nuestra cuenta de Azure que utilizamos anteriormente
+
+- Nos guiará como iniciar sesión en Azure y Visual Studio Code, reconocerá la cuenta automaticamente.
+
+- Después agregaremos un recurso nuevo a utilizar, para ello daremos clic en el simbolo de '+' en la parte superior como en la siguiente imagen:
+
 ![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso2.png)
+
+- Se desplegará un menu y seleccionaremos 'Create Static Web App', como en la siguiente imagen:
+
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso3.png)
+
+- A continuación nos guiará en una serie de pasos:
+
+- 1. Nombre de la Static Web App
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso4.png)
+
+- 2. Región donde se encontrará la Static Web App (Escoge la más cercana a tu ubicación Geografica):
+
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso5.png)
+
+- 3. Configuaración de la Static Web App, en este caso será 'Custom':
+
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso6.png)
+
+- 4. Nos solicitará la ubicación de los archivos fuentes y colocaremos ```/src .```
+
+
 
 ## Recursos
 - [Azure Maps Samples](https://samples.azuremaps.com/?sample=)
