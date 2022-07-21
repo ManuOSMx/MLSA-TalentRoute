@@ -66,8 +66,17 @@ git clone https://github.com/ManuOSMx/MLSA-TalentRoute.git
 
 ![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso6.png)
 
-- 4. Nos solicitará la ubicación de los archivos fuentes y colocaremos ```/src .```
+- 4. Nos solicitará la ubicación de los archivos fuentes y colocaremos ```/src``, después para tener 'build' del proyecto nos lo pedirá solo damos 'Enter'
 
+- 5. Estará en progeso el despliegue de la Static Web App y para observarlo podemos verlo en 'Actions Github', que podemos darle clic a la ventana emergente que nos manda.
+
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso7.png)
+
+- Para confirmar que la Static Web App si se encuentra desplegada, lo podemos observar en nuestra lista de recursoso como acontinuación:
+
+![alt text](https://github.com/ManuOSMx/MLSA-TalentRoute/blob/main/img/Paso8.png)
+
+Y con ello puedes hacer futuros cambios a la Statice Web App y automaticamente se realizarán las actualización al observar cambios, observarás que el Action de Github esta en progreso.
 
 
 ## Recursos
