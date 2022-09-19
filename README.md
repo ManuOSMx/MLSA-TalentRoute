@@ -88,4 +88,4 @@ Y con ello puedes hacer futuros cambios a la Statice Web App y automaticamente s
 - [Evelyn Arias](https://github.com/https://github.com/earias12)
 - [Manuel Ortiz](https://github.com/ManuOSMX)
 - [Mika Molina](https://github.com)
-- [Orlando Guzman](https://github.com)
+- [Orlando Guzman](https://github.com/OrlandoBBatiz)
